@@ -15,53 +15,54 @@
 
       <!--main section start-->
       <main>
-        <form action="index.html" method="GET">
-          <div class="form-container">
+        <div class="form-container">
+          <form action="index.html" method="GET">
             <div class="fname flex">
-              <label for="fname">First Name</label>
+              <label for="fname">First Name:</label>
               <div>
                 <input type="text" name="firstname" id="fname">
               </div>
             </div>
-            <span class="error-message">error-message</span>
+            <span class="error-message" id="fname-msg"></span>
             <div class="lname flex">
-              <label for="lname">Last Name</label>
+              <label for="lname">Last Name:</label>
               <div>
                 <input type="text" name="lastname" id="lname">
               </div>
             </div>
-            <span class="error-message">error-message</span>
+            <span class="error-message" id="lname-msg">error-message</span>
             <div class="gender flex">
-              <label for="Gender">Gender</label>
+              <label for="Gender">Gender:</label>
               <div>
                 <input type="radio" name="gender" id="male">
               </div>
-              <label for="male">Male</label>
+              <label for="male" class="pointer">Male</label>
               <div>
                 <input type="radio" name="gender" id="female">
               </div>
-              <label for="male">FeMale</label>
+              <label for="female" class="pointer">Female</label>
             </div>
-            <span class="error-message">error-message</span>
+            <span class="error-message" id="gender-msg">error-message</span>
             <div class="address flex">
-              <label for="address flex">Address:</label>
+              <label for="address" >Address:</label>
               <div>
                 <textarea id="address" name="address" autocomplete="address" rows="4" cols="20"></textarea>
               </div>
             </div>
-            <span class="error-message">error-message</span>
+            <span class="error-message" id="address-msg">error-message</span>
             <div class="checkbox flex">
               <div>
                 <input type="checkbox" name="terms" id="terms">
               </div>
-              <label for="terms">Terms and conditions</label>
+              <label for="terms" class="pointer">Terms and conditions</label>
             </div>
+            <span class="error-message" id="terms-msg">error-message</span>
             <div class="button-container">
               <button type="submit" id="submit-btn" class="submit-btn">Submit</button>
               <button type="submit" id="cancel-btn" class="cancel-btn">Cancel</button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </main>
       <!--main section end-->
     </div>
