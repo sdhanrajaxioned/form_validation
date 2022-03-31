@@ -20,43 +20,51 @@
             <div class="fname flex">
               <label for="fname">First Name:</label>
               <div>
-                <input type="text" name="firstname" id="fname">
+                <input type="text" name="firstname" id="fname" placeholder="Enter your first name..">
+                <span class="error-message" id="fname-msg"></span>
               </div>
               <span class="error-message" id="fname-msg"></span>
             </div>
             <div class="lname flex">
               <label for="lname">Last Name:</label>
               <div>
-                <input type="text" name="lastname" id="lname" autocomplete="off">
+                <input type="text" name="lastname" id="lname" placeholder="Enter your last name..">
+                <span class="error-message" id="lname-msg" ></span>
               </div>
             </div>
-            <span class="error-message" id="lname-msg">error-message</span>
+            <div class="email flex">
+              <label for="email">Email:</label>
+              <div>
+                <input type="text" name="email" id="email" placeholder="Enter your email..">
+                <span class="error-message" id="email-msg" ></span>
+              </div>
+            </div>
             <div class="gender flex">
               <label for="Gender">Gender:</label>
               <div>
-                <input type="radio" name="gender" id="male" autocomplete="off">
+                <input type="radio" name="gender" id="male">
               </div>
-              <label for="male" class="pointer">Male</label>
+              <label for="male">Male</label>
               <div>
                 <input type="radio" name="gender" id="female">
               </div>
-              <label for="female" class="pointer">Female</label>
+              <label for="female">Female</label>
             </div>
-            <span class="error-message" id="gender-msg">error-message</span>
+            <span class="error-message" id="gender-msg"></span>
             <div class="address flex">
               <label for="address" >Address:</label>
               <div>
-                <textarea id="address" name="address" autocomplete="address" rows="4" cols="20" autocomplete="off"></textarea>
+                <textarea id="address" name="address" rows="4" cols="20" placeholder="Enter your full Address.."></textarea>
+                <span class="error-message" id="address-msg"></span>
               </div>
             </div>
-            <span class="error-message" id="address-msg">error-message</span>
             <div class="checkbox flex">
               <div>
                 <input type="checkbox" name="terms" id="terms">
               </div>
               <label for="terms" class="pointer">Terms and conditions</label>
             </div>
-            <span class="error-message" id="terms-msg">error-message</span>
+            <span class="error-message" id="terms-msg"></span>
             <div class="button-container">
               <button type="submit" id="submit-btn" class="submit-btn">Submit</button>
               <button type="submit" id="cancel-btn" class="cancel-btn">Cancel</button>
