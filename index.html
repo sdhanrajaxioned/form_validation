@@ -12,18 +12,57 @@
   <body>
     <!--container start-->
     <div class="container">
-      <!--header section start-->
-      <header>
-      </header>
-      <!--header section ends-->
+
       <!--main section start-->
       <main>
+        <form action="index.html" method="GET">
+          <div class="form-container">
+            <div class="fname flex">
+              <label for="fname">First Name</label>
+              <div>
+                <input type="text" name="firstname" id="fname" required>
+              </div>
+            </div>
+            <span class="error-message">error-message</span>
+            <div class="lname flex">
+              <label for="lname">Last Name</label>
+              <div>
+                <input type="text" name="lastname" id="lname" required>
+              </div>
+            </div>
+            <span class="error-message">error-message</span>
+            <div class="gender flex"></div>
+            <div class="gender">
+              <label for="Gender">Gender</label>
+              <div>
+                <input type="radio" name="male" id="male" required>
+              </div>
+              <label for="male">Male</label>
+              <div>
+                <input type="radio" name="female" id="female" required>
+              </div>
+              <label for="male">FeMale</label>
+            </div>
+            <span class="error-message">error-message</span>
+            <div class="address flex">
+              <label for="address flex">Address:</label>
+              <textarea id="address" name="address" autocomplete="address" maxlength="300" required></textarea>
+            </div>
+            <span class="error-message">error-message</span>
+            <div class="checkbox flex">
+              <div>
+                <input type="checkbox" name="terms" id="terms">
+              </div>
+              <label for="terms">Terms and conditions</label>
+            </div>
+            <div class="button-container">
+              <button type="submit">Submit</button>
+              <button type="submit">Cancel</button>
+            </div>
+          </div>
+        </form>
       </main>
       <!--main section end-->
-      <!--footer section start-->
-      <footer>      
-      </footer>
-      <!--footer section end-->
     </div>
     <!--container end-->
   </body>
