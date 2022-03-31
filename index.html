@@ -20,33 +20,34 @@
             <div class="fname flex">
               <label for="fname">First Name</label>
               <div>
-                <input type="text" name="firstname" id="fname" required>
+                <input type="text" name="firstname" id="fname">
               </div>
             </div>
             <span class="error-message">error-message</span>
             <div class="lname flex">
               <label for="lname">Last Name</label>
               <div>
-                <input type="text" name="lastname" id="lname" required>
+                <input type="text" name="lastname" id="lname">
               </div>
             </div>
             <span class="error-message">error-message</span>
-            <div class="gender flex"></div>
-            <div class="gender">
+            <div class="gender flex">
               <label for="Gender">Gender</label>
               <div>
-                <input type="radio" name="male" id="male" required>
+                <input type="radio" name="gender" id="male">
               </div>
               <label for="male">Male</label>
               <div>
-                <input type="radio" name="female" id="female" required>
+                <input type="radio" name="gender" id="female">
               </div>
               <label for="male">FeMale</label>
             </div>
             <span class="error-message">error-message</span>
             <div class="address flex">
               <label for="address flex">Address:</label>
-              <textarea id="address" name="address" autocomplete="address" maxlength="300" required></textarea>
+              <div>
+                <textarea id="address" name="address" autocomplete="address" rows="4" cols="20"></textarea>
+              </div>
             </div>
             <span class="error-message">error-message</span>
             <div class="checkbox flex">
@@ -56,8 +57,8 @@
               <label for="terms">Terms and conditions</label>
             </div>
             <div class="button-container">
-              <button type="submit">Submit</button>
-              <button type="submit">Cancel</button>
+              <button type="submit" id="submit-btn" class="submit-btn">Submit</button>
+              <button type="submit" id="cancel-btn" class="cancel-btn">Cancel</button>
             </div>
           </div>
         </form>
