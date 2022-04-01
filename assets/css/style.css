@@ -245,6 +245,12 @@ body {
   align-items: center;
 }
 
+.checkbox {
+  justify-content: center;
+}
+
+.checkbox label { padding: 10px;}
+
 label {
   font-size: 18px;
   padding: 20px;
@@ -252,7 +258,7 @@ label {
 }
 
 .radio-btn label { padding: 5px;}
-.checkbox label { padding: 20px 0; }
+/* .checkbox label { padding: 20px 0; } */
 .gender label:first-child { padding: 20px 40px 20px 20px;}
 .checkbox div { padding-left: 20px; }
 #address { margin-left: 4%; }
@@ -264,7 +270,9 @@ label {
   color: #FF0000; 
   font-size: 14px;
 }
-
+#terms-msg {padding-left: 30%;}
+#gender-msg { padding-left: 30%;}
+#address-msg {padding-left: 5%;}
 ::placeholder { 
   padding: 5px 10px;
   font-size: 14px;
@@ -289,7 +297,10 @@ input[type=email] {
   border-radius: 8px;
 }
 
-input[type=email] { margin-left: 14%;}
+input[type=email],
+#email-msg { 
+  margin-left: 14%;
+}
 
 textarea {
   width: 100%;
