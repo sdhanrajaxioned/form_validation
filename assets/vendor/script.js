@@ -27,9 +27,11 @@ $(document).ready(function () {
 
     function validateName(name,error,regex) {
         if(name.val() == '' || name.val() === null) {
+            $(error).show()
             $(error).text(`**${$(name).attr('name')} name field cant be empty!!**`);
             return false;
         } else if(!regex.test(name.val())) {
+            $(error).show()
             $(error).text('**Please Enter a valid name!**');
             return false;
         } else if($(error) != '') {
@@ -45,6 +47,7 @@ $(document).ready(function () {
 
     function validateGender() {
         if(!(gender_radio_btn.is(':checked'))) {
+            $('#gender-msg').show();
             $('#gender-msg').text('**Please select your gender**')
             return false;
         }
@@ -52,13 +55,12 @@ $(document).ready(function () {
 
     function validateAddress() {
         if(address.val() == "" || address.val() === null) {
+        $('#address-msg').show()
         $('#address-msg').text('**Address field cant be empty!!**')
         return false;
         } else if(!addressReg.test(address.val())) {
+            $('#address-msg').show()
             $('#address-msg').text('**Plese enter valid Address**');
-            return false;
-        } else if(address.val().length < 10) {
-            $('#address-msg').text('**PLease enter Full Address!**');
             return false;
         } else if('#address-msg' != '') {
             $('#address-msg').hide();
@@ -89,9 +91,11 @@ $(document).ready(function () {
         remove_terms();
 
         if(email.val() == '' || email.val() === null) {
+            $('#email-msg').show();
             $('#email-msg').text('**Email Field cant be empty!!**');
             return false
         } else if(!emailReg.test(email.val())) {
+            $('#email-msg').show();
             $('#email-msg').text('**Please enter valid email**');
             return false
         } else if($('#email-msg') != '') {
