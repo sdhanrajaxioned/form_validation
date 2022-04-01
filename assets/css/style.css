@@ -8,13 +8,87 @@
    v2.0 | 20110126
    License: none (public domain)
    ========================================================================== */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
-ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,22 +98,38 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html {
+  overflow-y: scroll;
+}
 
 /* Align radios and text inputs with their label */
 
-input[type='radio'] { vertical-align: text-bottom; }
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
 
 /* Hand cursor on clickable input elements */
+label,
 input[type='button'],
 input[type='submit'],
-button { cursor: pointer; }
+button {
+  cursor: pointer;
+}
 
 strong {
   font-weight: bold;
@@ -47,7 +137,9 @@ strong {
   font-size: inherit;
 }
 
-em { font-style: italic; }
+em {
+  font-style: italic;
+}
 
 img {
   width: 100%;
@@ -63,8 +155,13 @@ sup {
   line-height: 0;
 }
 
-sup { top: -.7em; }
-sub { bottom: -.25em; }
+sup {
+  top: -.7em;
+}
+
+sub {
+  bottom: -.25em;
+}
 
 /* 1.2. Clear Fix
    ========================== */
@@ -75,8 +172,13 @@ sub { bottom: -.25em; }
   content: " ";
 }
 
-.cf:after { clear: both; }
-.cf { *zoom: 1; }
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
 
 /*for all*/
 body {
@@ -84,27 +186,45 @@ body {
   font-family: sans-serif;
 }
 
-a { 
+a {
   display: inline-block;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 li {
   display: inline-block;
   list-style-type: none;
 }
+
 /* Common styling */
-.grey { color: #666; }
-.cap { text-transform: capitalize; }
-.up { text-transform: uppercase; }
-.center { text-align: center; }
-.bold { font-weight: bold; }
-.transition { transition: 1s all ease; }
+.grey {
+  color: #666;
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.up {
+  text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.transition {
+  transition: 1s all ease;
+}
 
 /*for wrapper*/
 .wrapper {
   max-width: 1350px;
-  width: 86%; 
+  width: 86%;
   margin: 0 auto;
 }
 
@@ -122,40 +242,46 @@ body {
 
 .flex {
   display: flex;
-  /* gap: 20px; */
   align-items: center;
-  /* justify-content: space-between; */
 }
 
 label {
+  font-size: 18px;
   padding: 20px;
   color: indigo;
 }
 
-.pointer { cursor: pointer; }
-
+.radio-btn label { padding: 5px;}
 .checkbox label { padding: 20px 0; }
 .gender label:first-child { padding: 20px 40px 20px 20px;}
-.gender label:last-child { padding: 20px 5px;}
-.gender label:nth-of-type(2) { padding: 20px 5px;}
 .checkbox div { padding-left: 20px; }
+#address { margin-left: 4%; }
 
-#address { margin-left: 4%;}
+.gender label:last-child,
+.gender label:nth-of-type(2) { padding: 0 5px;}
 
-span { 
-  padding: 0 20px;
-  display: block;
+.error-message { 
+  color: #FF0000; 
+  font-size: 14px;
 }
 
-.error-message { color: #FF0000;}
-
+::placeholder { 
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #000;
+}
 
 .fname div,
-.lname div{ 
+.lname div,
+.email div,
+.address div {
   width: 300px;
 }
 
-input[type=text] {
+input[type=radio] {vertical-align: baseline;}
+
+input[type=text],
+input[type=email] {
   width: 100%;
   height: 40px;
   border: none;
@@ -163,7 +289,7 @@ input[type=text] {
   border-radius: 8px;
 }
 
-.address div { width: 300px; }
+input[type=email] { margin-left: 14%;}
 
 textarea {
   width: 100%;
@@ -200,7 +326,7 @@ button:hover {
 
 /*=================================
   footer styling starts here
-=================================*/ 
+=================================*/
 
 
 
@@ -208,14 +334,10 @@ button:hover {
 
 
 
- /*=================================
+/*=================================
   footer styling ends here
-=================================*/ 
+=================================*/
 
 /*media query starts*/
 /*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  
+@media only screen and (max-width: 995px) {}
