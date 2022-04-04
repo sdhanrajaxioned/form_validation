@@ -17,55 +17,80 @@ $(document).ready(function () {
     //     })
     // }
 
-    function validateData(name,error,regex,error_msg) {
-        $(error).removeClass('invalid');
-        if(name.val() == '' || name.val() === null) {
-            $(error).addClass('invalid');
-            $(error).text('This field is required');
-            return false;
-        } else if(!regex.test(name.val())) {
-            $(error).addClass('invalid');
-            $(error).text(error_msg);
-            return false;
-        } else if($(error) != '') {
-            $(error).hide()
-            return true;
+    function emptyFields(input) {
+        input.addClass('invalid');
+        input.next().text('This field is required')
+        input.next().show();
+    }
+
+    function fieldValidation(name, regex, error_msg) {
+        if(!regex.test(name.val())) {
+            name.next().show()
+            name.addClass('invalid');
+            name.next().text(error_msg);
+        }
+    }
+    
+    function validateData(name,regex,error_msg) {
+        name.removeClass('invalid');
+        name.next().hide();
+        if(name.val() === '' ) {
+            emptyFields(name);
+        } else {
+            fieldValidation(name, regex, error_msg)
         }
     }
 
-    
+    function validateEmail(email, emailReg) {
+        email.removeClass('invalid');
+        if(email.val() == '') {
+            email.addClass('invalid');
+            email.next().text('**Email Field cant be empty!!**')
+        } else if(!emailReg.test(email.val())) {
+            email.addClass('invalid');
+            email.next().text('**Please enter valid email**')
+            return false
+        } else if($('#email-msg') != '') {
+            email.removeClass('invalid');
+            email.next().hide();
+        }
+      }
+
     function validateGender(gender) {
-        $('#gender-msg').removeClass('invalid');
+        gender.each(function() {
+            $(this).removeClass('invalid');
+        })
         if(!(gender.is(':checked'))) {
-            $('#gender-msg').addClass('invalid');
-            $('#gender-msg').text('**Please select your gender**')
-            return false;
+            gender.each(function() {
+                $(this).addClass('invalid');
+            })
+            gender.parentsUntil('form').next('#gender-msg').text('**Please select your gender**')
         }
     }
     
     function remove_error_radio(gender) {
-        $(gender).change(function() {
-            $('#gender-msg').removeClass('invalid');
-            $('#gender-msg').hide();
-            return true;
+        gender.change(function() {
+            gender.each(function() {
+                $(this).removeClass('invalid');
+            })
+            gender.parentsUntil('form').next('#gender-msg').hide();
         })
     }
 
     function validateCheckbox(terms) {
-        $('#terms-msg').removeClass('invalid');
+        terms.removeClass('invalid');
         if (!(terms.is(':checked'))) {
-            $('#terms-msg').addClass('invalid');
-            $('#terms-msg').show();
-            $('#terms-msg').text('**Please accept terms and condition!!**');
-            return false;
+            terms.addClass('invalid');
+            // $('#terms-msg').addClass('invalid');
+            terms.parentsUntil('form').next('#terms-msg').show()
+            terms.parentsUntil('form').next('#terms-msg').text('**Please accept terms and condition!!**')
         } 
     }
 
     function remove_terms(terms) {
         $(terms).change(function() {
-            $('#terms-msg').removeClass('invalid');
-            $('#terms-msg').toggle();
-            return true;
+            terms.removeClass('invalid');
+            terms.parentsUntil('form').next('#terms-msg').toggle();
         })
     }
     
@@ -76,32 +101,16 @@ $(document).ready(function () {
         var gender_radio_btn = $('input:radio[name="gender"]');
         var terms = $('input:checkbox[name="terms"]');
         var address = $('#address');
-        var fname_error = $('#fname-msg')
-        var lname_error = $('#lname-msg')
-        var address_error = $('#address-msg')
-        validateData(fname,fname_error,characterReg,'Please enter valid first name');
-        validateData(lname,lname_error,characterReg,'Please enter valid last name');
-        validateData(address,address_error,addressReg,'Please enter valid Address');
+        validateData(fname,characterReg,'Please enter valid first name');
+        validateData(lname,characterReg,'Please enter valid last name');
+        validateData(address,addressReg,'Please enter valid Address');
+        validateEmail(email,emailReg);
         validateGender(gender_radio_btn);
         remove_error_radio(gender_radio_btn);
         validateCheckbox(terms);
         remove_terms(terms);
-
-        $('#email-msg').removeClass('invalid');
-        if(email.val() == '' || email.val() === null) {
-            $('#email-msg').addClass('invalid');
-            $('#email-msg').text('**Email Field cant be empty!!**');
-            return false
-        } else if(!emailReg.test(email.val())) {
-            $('#email-msg').addClass('invalid');
-            $('#email-msg').text('**Please enter valid email**');
-            return false
-        } else if($('#email-msg') != '') {
-            $('#email-msg').removeClass('invalid');
-            $('#email-msg').hide();
-        }
-
-        if($('.error-message').hasClass('invalid')){
+        
+        if($('.form-container input').hasClass('invalid') || $('.form-container textarea').hasClass('invalid')){
             return false;
         } else { 
             alert('form submitted successfully!!')
