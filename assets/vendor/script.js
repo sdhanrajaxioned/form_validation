@@ -3,20 +3,6 @@ $(document).ready(function () {
     var characterReg = /^[A-Za-z]+$/;
     var addressReg = /^[a-zA-Z0-9-\/] ?([a-zA-Z0-9-\/]|[a-zA-Z0-9-\/] )*[a-zA-Z0-9-\/]$/;
 
-    // function empty_field() {
-    //     $('form').each(function() {
-    //        var inputs = ($(this).find(':input'));
-    //        console.log(inputs)
-    //        inputs.each(function() {
-    //           if($(this).val() == ""){
-    //               $('.error-message').text("**This field is required!!**")
-    //           } else {
-    //               $('.error-message').text('')
-    //           }
-    //        })
-    //     })
-    // }
-
     function emptyFields(input) {
         input.addClass('invalid');
         input.next().text('This field is required')
@@ -54,7 +40,7 @@ $(document).ready(function () {
             email.removeClass('invalid');
             email.next().hide();
         }
-      }
+    }
 
     function validateGender(gender) {
         gender.each(function() {
