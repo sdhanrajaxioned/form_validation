@@ -3,12 +3,14 @@ $(document).ready(function () {
     var characterReg = /^[A-Za-z]+$/;
     var addressReg = /^[a-zA-Z0-9-\/] ?([a-zA-Z0-9-\/]|[a-zA-Z0-9-\/] )*[a-zA-Z0-9-\/]$/;
 
+    // display empty fields error message
     function emptyFields(input) {
         input.addClass('invalid');
         input.next().text('This field is required')
         input.next().show();
     }
 
+    // Validates whether First Name , Last Name and Address is valid or not.
     function fieldValidation(name, regex, error_msg) {
         if(!regex.test(name.val())) {
             name.next().show()
@@ -17,6 +19,7 @@ $(document).ready(function () {
         }
     }
     
+    //Validates whether First Name , Last Name and Address fields is empty or valid.
     function validateData(name,regex,error_msg) {
         name.removeClass('invalid');
         name.next().hide();
@@ -27,6 +30,7 @@ $(document).ready(function () {
         }
     }
 
+    //Validates whether Email field is empty or valid
     function validateEmail(email, emailReg) {
         email.removeClass('invalid');
         if(email.val() == '') {
@@ -42,6 +46,7 @@ $(document).ready(function () {
         }
     }
 
+    // validates whether user checked the gender field
     function validateGender(gender) {
         gender.each(function() {
             $(this).removeClass('invalid');
@@ -52,9 +57,6 @@ $(document).ready(function () {
             })
             gender.parentsUntil('form').next('#gender-msg').text('**Please select your gender**')
         }
-    }
-    
-    function remove_error_radio(gender) {
         gender.change(function() {
             gender.each(function() {
                 $(this).removeClass('invalid');
@@ -63,38 +65,34 @@ $(document).ready(function () {
         })
     }
 
+    // validates whether user accepted terms and condition
     function validateCheckbox(terms) {
         terms.removeClass('invalid');
         if (!(terms.is(':checked'))) {
             terms.addClass('invalid');
-            // $('#terms-msg').addClass('invalid');
             terms.parentsUntil('form').next('#terms-msg').show()
             terms.parentsUntil('form').next('#terms-msg').text('**Please accept terms and condition!!**')
         } 
-    }
-
-    function remove_terms(terms) {
         $(terms).change(function() {
             terms.removeClass('invalid');
             terms.parentsUntil('form').next('#terms-msg').toggle();
         })
     }
     
+    // validates all the fields 
     function validateForm() {
         var fname = $('#fname');
         var lname = $('#lname');
         var email = $('#email');
         var gender_radio_btn = $('input:radio[name="gender"]');
-        var terms = $('input:checkbox[name="terms"]');
+        var terms = $('#terms');
         var address = $('#address');
-        validateData(fname,characterReg,'Please enter valid first name');
-        validateData(lname,characterReg,'Please enter valid last name');
+        validateData(fname,characterReg,'Please enter valid First Name');
+        validateData(lname,characterReg,'Please enter valid Last Name');
         validateData(address,addressReg,'Please enter valid Address');
         validateEmail(email,emailReg);
         validateGender(gender_radio_btn);
-        remove_error_radio(gender_radio_btn);
         validateCheckbox(terms);
-        remove_terms(terms);
         
         if($('.form-container input').hasClass('invalid') || $('.form-container textarea').hasClass('invalid')){
             return false;
